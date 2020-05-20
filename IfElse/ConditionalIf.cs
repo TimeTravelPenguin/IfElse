@@ -7,10 +7,10 @@
 // File Name: ConditionalIf.cs
 // 
 // Current Data:
-// 2020-05-20 5:56 PM
+// 2020-05-20 8:58 PM
 // 
 // Creation Date:
-// 2020-05-20 2:02 PM
+// 2020-05-20 7:29 PM
 
 #endregion
 
@@ -18,19 +18,31 @@ using System;
 
 namespace IfElse
 {
+  /// <summary>
+  ///   A conditional statement used by <see cref="Conditional" />
+  /// </summary>
   public class ConditionalIf
   {
     private Func<bool> IfCondition { get; }
     private Action Method { get; }
     private ConditionalIf ElseIf { get; set; }
 
+    /// <summary>
+    ///   Constructor for <see cref="ConditionalIf" /> to set conditional function and activation method
+    /// </summary>
+    /// <param name="condition">
+    ///   The conditional function which satisfies whether the condition will be met
+    /// </param>
+    /// <param name="method">
+    ///   The action to invoke if <paramref name="condition" /> results in <see langword="true" />
+    /// </param>
     public ConditionalIf(Func<bool> condition, Action method)
     {
       IfCondition = condition;
       Method = method;
     }
 
-    public void AddElseIf(Func<bool> condition, Action method)
+    internal void AddElseIf(Func<bool> condition, Action method)
     {
       if (method is null)
       {
@@ -47,6 +59,12 @@ namespace IfElse
       }
     }
 
+    /// <summary>
+    ///   Recursive function used to iterate and determine if a condition is to be met
+    /// </summary>
+    /// <returns>
+    ///   A <see cref="bool" /> indicating if a conditional was satisfied and method invoked
+    /// </returns>
     public bool RunCondition()
     {
       if (IfCondition.Invoke())

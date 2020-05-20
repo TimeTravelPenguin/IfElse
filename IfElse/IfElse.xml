@@ -4,5 +4,156 @@
         <name>IfElse</name>
     </assembly>
     <members>
+        <member name="T:IfElse.Conditional">
+            <summary>
+              Conditional object contains the conditions of each if, else-if, and else statement
+            </summary>
+        </member>
+        <member name="M:IfElse.Conditional.Process">
+            <summary>
+              Processes the conditional statements, executing the first that returns a true condition
+            </summary>
+        </member>
+        <member name="M:IfElse.Conditional.#ctor(System.Func{System.Boolean},System.Action)">
+            <summary>
+              Conditional constructor for the initial if condition.
+            </summary>
+            <param name="condition">
+              A function with <see cref="T:System.Boolean" /> return type used to determine if a statement satisfies a
+              condition. This is the initial if statement.
+            </param>
+            <param name="method">
+              The action to invoke if <paramref name="condition" /> results in a <see langword="true" /> value
+            </param>
+        </member>
+        <member name="T:IfElse.ConditionalExtension">
+            <summary>
+              Extenstion used to build <see cref="T:IfElse.IConditional" /> composition
+            </summary>
+        </member>
+        <member name="M:IfElse.ConditionalExtension.If(System.Action,System.Func{System.Boolean})">
+            <summary>
+              Creates a new <see cref="T:IfElse.Conditional" /> object, providing the initial if statement
+            </summary>
+            <param name="method">
+              The action to invoke if <paramref name="condition" /> results in <see langword="true" />
+            </param>
+            <param name="condition">
+              The conditional function which satisfies whether the condition will be met
+            </param>
+            <returns>
+              <see cref="T:IfElse.IConditional" />
+            </returns>
+        </member>
+        <member name="M:IfElse.ConditionalExtension.ElseIf(IfElse.IConditional,System.Func{System.Boolean},System.Action)">
+            <summary>
+              Appends an additional conditional statement to the end of all other conditionals
+            </summary>
+            <param name="conditional">
+              The <see cref="T:IfElse.IConditional" /> in which to append
+            </param>
+            <param name="condition">
+              The conditional function which satisfies whether the condition will be met
+            </param>
+            <param name="method">
+              The action to invoke if <paramref name="condition" /> results in <see langword="true" />
+            </param>
+            <returns>
+              <see cref="T:IfElse.IConditional" />
+            </returns>
+        </member>
+        <member name="M:IfElse.ConditionalExtension.Else(IfElse.IConditional,System.Action)">
+            <summary>
+              Sets the else action invocation for the event that not conditionals are satisfied
+            </summary>
+            <param name="conditional">
+              The <see cref="T:IfElse.IConditional" /> in which to append
+            </param>
+            <param name="method">
+              The action to invoke if <paramref name="conditional" /> does not result in a satisfied conditional statement
+            </param>
+            <returns>
+              <see cref="T:IfElse.IConditional" />
+            </returns>
+        </member>
+        <member name="T:IfElse.ConditionalIf">
+            <summary>
+              A conditional statement used by <see cref="T:IfElse.Conditional" />
+            </summary>
+        </member>
+        <member name="M:IfElse.ConditionalIf.#ctor(System.Func{System.Boolean},System.Action)">
+            <summary>
+              Constructor for <see cref="T:IfElse.ConditionalIf" /> to set conditional function and activation method
+            </summary>
+            <param name="condition">
+              The conditional function which satisfies whether the condition will be met
+            </param>
+            <param name="method">
+              The action to invoke if <paramref name="condition" /> results in <see langword="true" />
+            </param>
+        </member>
+        <member name="M:IfElse.ConditionalIf.RunCondition">
+            <summary>
+              Recursive function used to iterate and determine if a condition is to be met
+            </summary>
+            <returns>
+              A <see cref="T:System.Boolean" /> indicating if a conditional was satisfied and method invoked
+            </returns>
+        </member>
+        <member name="T:IfElse.Exceptions.ConditionAlreadyDefinedException">
+            <summary>
+              Class containing ConditionAlreadyDefinedException
+            </summary>
+        </member>
+        <member name="M:IfElse.Exceptions.ConditionAlreadyDefinedException.#ctor(System.String)">
+            <summary>
+              <see cref="T:IfElse.Exceptions.ConditionAlreadyDefinedException" /> providing exception message
+            </summary>
+            <param name="message">Exception message</param>
+        </member>
+        <member name="M:IfElse.Exceptions.ConditionAlreadyDefinedException.#ctor(System.String,System.Exception)">
+            <summary>
+              <see cref="T:IfElse.Exceptions.ConditionAlreadyDefinedException" /> providing exception message and inner exception
+            </summary>
+            <param name="message">Exception message</param>
+            <param name="innerException">Inner exception</param>
+        </member>
+        <member name="M:IfElse.Exceptions.ConditionAlreadyDefinedException.#ctor">
+            <summary>
+              Default exception
+            </summary>
+        </member>
+        <member name="T:IfElse.Exceptions.ExceptionMessage">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:IfElse.Exceptions.ExceptionMessage.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:IfElse.Exceptions.ExceptionMessage.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:IfElse.Exceptions.ExceptionMessage.ConditionAlreadyDefined">
+            <summary>
+              Looks up a localized string similar to {0} is already defined.
+            </summary>
+        </member>
+        <member name="T:IfElse.IConditional">
+            <summary>
+              Interface for conditional objects.
+            </summary>
+            <seealso cref="T:IfElse.Conditional" />
+        </member>
+        <member name="M:IfElse.IConditional.Process">
+            <summary>
+              Processes the current <see cref="T:IfElse.IConditional" /> for a satisfied condition
+            </summary>
+        </member>
     </members>
 </doc>
