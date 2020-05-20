@@ -15,6 +15,7 @@
     <FileVersion>1.0.1.0</FileVersion>
     <PackageReleaseNotes>Documentation and minor changes. This package should still not be used. Not ever.</PackageReleaseNotes>
     <PackageIcon>cool_112.png</PackageIcon>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
