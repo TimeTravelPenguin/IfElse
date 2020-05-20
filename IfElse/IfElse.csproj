@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <AssemblyName>IfElse</AssemblyName>
+    <RootNamespace>IfElse</RootNamespace>
+    <Description>A fluent If, If Else, Else syntax.</Description>
+    <Authors>Phillip Smith</Authors>
+  </PropertyGroup>
+
+</Project>
