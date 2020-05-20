@@ -4,8 +4,31 @@
     <TargetFramework>netstandard2.1</TargetFramework>
     <AssemblyName>IfElse</AssemblyName>
     <RootNamespace>IfElse</RootNamespace>
-    <Description>A fluent If, If Else, Else syntax.</Description>
+    <Description>A fluent If, If-Else, Else syntax.</Description>
     <Authors>Phillip Smith</Authors>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageProjectUrl>https://github.com/TimeTravelPenguin/IfElse</PackageProjectUrl>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <RepositoryUrl>https://github.com/TimeTravelPenguin/IfElse</RepositoryUrl>
+    <PackageTags>Joke</PackageTags>
   </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>D:\C#_Offline\IfElse\IfElse\IfElse.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.6">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
 
 </Project>

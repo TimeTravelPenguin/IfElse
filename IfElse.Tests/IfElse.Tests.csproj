@@ -26,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\IfThenElse\IfElse.csproj" />
+    <ProjectReference Include="..\IfElse\IfElse.csproj" />
   </ItemGroup>
 
 </Project>
